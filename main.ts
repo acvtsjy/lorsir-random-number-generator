@@ -6,13 +6,7 @@ const randomNumber = Math.random();
 // generazione numeri pseudo randomici
 function RNGdec(min: number, max: number, precision: number)
 {
-    // codice!
-    const rng = Math.random();
-    return (rng * (max - min) + min).toFixed(precision);
-}
-function RNGdec_1(min: number, max: number, precision: number)
-{
-    // codice!
+   
     const multFactor = Math.pow(10,precision);    
     return RNG(min * multFactor, max*multFactor) / multFactor;
 }
@@ -24,7 +18,7 @@ function RNG(min: number, max: number) {
 
 function RNGSequance(len: number, min: number, max: number) {
 
-    if (len >= (max-min)) {
+    if (len > (max-min)) {
         throw new Error(`Cannot find ${len} numbers between ${min} and ${max}`);        
     }
 
@@ -46,11 +40,10 @@ const estrazioni: {[ruota: string]: number[] } = {};
 
 
 for (const ruota of route) {
-    const estrazione = RNGSequance(5,1,90);//,1,100);
+    const estrazione = RNGSequance(5,0,90);//,1,100);
 
     estrazioni[ruota] = estrazione;
     
     
 }
 console.log(JSON.stringify(estrazioni,null, 2));
-
