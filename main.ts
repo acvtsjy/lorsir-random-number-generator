@@ -6,7 +6,7 @@ const randomNumber = Math.random();
 // generazione numeri pseudo randomici
 function RNGdec(min: number, max: number, precision: number)
 {
-    
+   
     const multFactor = Math.pow(10,precision);    
     return RNG(min * multFactor, max*multFactor) / multFactor;
 }
@@ -40,7 +40,7 @@ const estrazioni: {[ruota: string]: number[] } = {};
 
 
 for (const ruota of route) {
-    const estrazione = RNGSequance(5,1,90);//,1,100);
+    const estrazione = RNGSequance(90,1,90);//,1,100);
 
     estrazioni[ruota] = estrazione;
     
