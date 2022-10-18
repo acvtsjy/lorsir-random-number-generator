@@ -4,19 +4,19 @@ console.log('Random number');
 
 const randomNumber = Math.random();
 // generazione numeri pseudo randomici
-function RNGdec(min: number, max: number, precision: number)
-{
+// function RNGdec(min: number, max: number, precision: number)
+// {
    
-    const multFactor = Math.pow(10,precision);    
-    return RNG(min * multFactor, max*multFactor) / multFactor;
-}
+//     const multFactor = Math.pow(10,precision);    
+//     return RNG(min * multFactor, max*multFactor) / multFactor;
+// }
 
 function RNG(min: number, max: number) {
     const rng = Math.random();
     return Math.trunc((rng * (max - min) + min));
 }
 
-function RNGSequance(len: number, min: number, max: number) {
+function RNGSequence(len: number, min: number, max: number) {
 
     if (len > (max-min)) {
         throw new Error(`Cannot find ${len} numbers between ${min} and ${max}`);        
@@ -38,12 +38,24 @@ const route = ['Bari', 'Cagliari', 'firenze', 'Genova', 'Milano', 'napoli', 'Pal
 
 const estrazioni: {[ruota: string]: number[] } = {};
 
-
 for (const ruota of route) {
-    const estrazione = RNGSequance(5,0,90);//,1,100);
-
-    estrazioni[ruota] = estrazione;
-    
-    
+    const estrazione = RNGSequence(5,0,90);
+    estrazioni[ruota] = estrazione;       
 }
-console.log(JSON.stringify(estrazioni,null, 2));
+ console.log(JSON.stringify(estrazioni,null, 2));
+
+const container = document.getElementById('cnt');
+if (container) {
+    const pre = document.createElement('pre');
+
+    for (const ruota of route) {
+        const ruotaDiv = document.createElement('div');
+        const nameH2 = document.createElement('h2');
+        nameH2.innerText = ruota;
+        ruotaDiv.appendChild(nameH2);
+        container.appendChild(ruotaDiv);
+    }
+    // pre.innerText = JSON.stringify(estrazioni, null, 2);
+    // container.appendChild(pre);
+
+}
