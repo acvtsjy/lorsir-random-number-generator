@@ -6,13 +6,7 @@ const randomNumber = Math.random();
 // generazione numeri pseudo randomici
 function RNGdec(min: number, max: number, precision: number)
 {
-    // codice!
-    const rng = Math.random();
-    return (rng * (max - min) + min).toFixed(precision);
-}
-function RNGdec_1(min: number, max: number, precision: number)
-{
-    // codice!
+    
     const multFactor = Math.pow(10,precision);    
     return RNG(min * multFactor, max*multFactor) / multFactor;
 }
